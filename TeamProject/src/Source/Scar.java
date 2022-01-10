@@ -2,7 +2,7 @@ package Source;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-public class Scar extends JPanel{
+public class Scar extends JFrame{
 	private ImageIcon icon = new ImageIcon("images/sic.png");
 	private Image img = icon.getImage();
 	private Image changeImg =img.getScaledInstance(100,100,Image.SCALE_SMOOTH);
@@ -22,8 +22,31 @@ public class Scar extends JPanel{
 			label[i].setBounds(500+(i*200), 500, 50, 50);
 			label[i].setFont(new Font("배달의민족 한나", 1, 20));
 			add(btn[i]);add(label[i]);
-			
+			btn[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JButton button =(JButton)e.getSource();
+					int num = getButtonIndex(button);
+					if(num==0) {new Yang();}
+					else if(num==1) {new China();}
+					else {new Japan();}
+					setVisible(false);
+				}
+			});
 		}
-		
+		setTitle("키오스크");
+		setSize(1500,1000);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		setLocationRelativeTo(null);
 	}
+	public int getButtonIndex(JButton button){
+       int num = 0;
+       for(int i =0; i<3; i++){
+          if(btn[i] == button){
+             num = i;
+          }
+       }
+       return num;
+    }
 }

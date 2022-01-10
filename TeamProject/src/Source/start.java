@@ -2,15 +2,14 @@ package Source;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-public class start extends JPanel{
+public class start extends JFrame{
 	ImageIcon ordericon = new ImageIcon("images/order.png");
 	Image img = ordericon.getImage();
 	Image changeImg =img.getScaledInstance(300,300,Image.SCALE_SMOOTH);
 	ImageIcon changeordericon = new ImageIcon(changeImg);
-	private Simba win;
-	public start(Simba win)
+	private Scar scar;
+	public start()
 	{
-		this.win =win;
 		setLayout(null);
 		JButton orderbtn = new JButton();
 		orderbtn.setIcon(changeordericon);
@@ -19,12 +18,22 @@ public class start extends JPanel{
 		orderbtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				
 				JButton btn = (JButton)e.getSource();
 				btn.setVisible(false);
-				win.change("start");		
+				scar = new Scar();
+				setVisible(false);
 			}
 		});
 		add(orderbtn);
+		
+		setTitle("키오스크");
+		setSize(1500,1000);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		setLocationRelativeTo(null);
+	}
+	public static void main(String[] args) {
+		new start();
 	}
 }
