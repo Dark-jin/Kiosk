@@ -13,7 +13,6 @@ public class Yang extends JFrame{
 	private String[] PizzaName = {"페퍼로니 피자","불고기 피자","시카고 피자","시칠리아 피자","나폴리 피자"};//피자 이름 배열
 	private ImageIcon icon[] = new ImageIcon[5];//파스타 이미지 받을 Icon배열
 	private int money[] = {8000,9000,8000,9500,8000,14000,14000,18000,17000,16000};//가격
-	private String count="";
 	private TextArea ta;
 	private int sum=0;
 	public Yang() {
