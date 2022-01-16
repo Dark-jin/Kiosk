@@ -11,9 +11,7 @@ public class Yang extends JFrame{
 	private String[] PizzaImages = {"images/양식/6.jpg","images/양식/7.png","images/양식/8.jpeg","images/양식/9.jpg","images/양식/10.jpeg"};
 	//피자 이미지 배열
 	private String[] PizzaName = {"페퍼로니 피자","불고기 피자","시카고 피자","시칠리아 피자","나폴리 피자"};//피자 이름 배열
-	private ImageIcon icon[] = new ImageIcon[5];//파스타 이미지 받을 Icon배열
 	private int money[] = {8000,9000,8000,9500,8000,14000,14000,18000,17000,16000};//가격
-	private String count="";
 	private TextArea ta;
 	private int sum=0;
 	public Yang() {
@@ -43,9 +41,9 @@ public class Yang extends JFrame{
 				btn[i].setBounds(200+((i-5)*150), 440,100, 100);//피자 버튼배열 위치
 				btn[i].setIcon(changeImage(PizzaImages[i-5]));//피자 이미지 크기 조절
 				btn[i].setText(Integer.toString(money[i]));//가격
-				la[i] = new JLabel(PizzaName[i-5]);//파스타 이름
-				la[i].setBounds(200+((i-5)*150),540,130,50);la[i].setFont(new Font("배달의민족 한나",1,20));//파스타 이름 폰트 및 위치
-				la[i].setOpaque(true);//파스타 이름 보이게
+				la[i] = new JLabel(PizzaName[i-5]);//피자 이름
+				la[i].setBounds(200+((i-5)*150),540,130,50);la[i].setFont(new Font("배달의민족 한나",1,20));//피자 이름 폰트 및 위치
+				la[i].setOpaque(true);//피자 이름 보이게
 				add(btn[i]);add(la[i]);//Frame에 add
 			}
 			btn[i].addActionListener(new ActionListener() {

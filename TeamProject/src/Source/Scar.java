@@ -16,13 +16,13 @@ public class Scar extends JFrame{
 		setLayout(null);
 		for(int i=0;i<name.length;i++) {
 			btn[i] = new JButton();
-			btn[i].setBounds(470+(i*200),400,100,100);
+			btn[i].setBounds(370+(i*200),350,100,100);
 			btn[i].setIcon(change);
 			btn[i].setVisible(true);
 			label[i] = new JLabel();
 			label[i].setText(name[i]);
-			label[i].setBounds(500+(i*200), 500, 50, 50);
-			label[i].setFont(new Font("배달의민족 한나", 1, 20));
+			label[i].setBounds(395+(i*200), 450, 70, 50);
+			label[i].setFont(new Font("배달의민족 한나", 1, 25));
 			add(btn[i]);add(label[i]);
 			btn[i].addActionListener(new ActionListener() {
 	            @Override
