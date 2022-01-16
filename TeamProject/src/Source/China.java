@@ -6,9 +6,9 @@ public class China extends JFrame{
 	private JPanel p1 = new JPanel();
 	private JPanel p2 = new JPanel();
 	private JButton btn [] = new JButton[12];
-    static String[] food = { "images/짜장면.png","images/딤섬.png","images/군만두.png","images/짬뽕.png","images/팔보채.png",
-    		"images/마파두부.png","images/베이징 덕.png","images/중국차.png","images/오므라이스.png","images/기스면.png","images/마라탕.png"
-    		,"images/우동.png"}; // 총 12개
+    static String[] food = { "images/중식/짜장면.png","images/중식/딤섬.png","images/중식/군만두.png","images/중식/짬뽕.png","images/중식/팔보채.png",
+    		"images/중식/마파두부.png","images/중식/베이징 덕.png","images/중식/중국차.png","images/중식/오므라이스.png","images/중식/기스면.png",
+    		"images/중식/마라탕.png","images/중식/우동.png"}; // 총 12개
     //
     private JTextArea a = new JTextArea(7,5);
     private String s [] = {"짜장면","딤섬","군만두","짬뽕","팔보채","마파두부","베이징 덕","중국차","오므라이스","기스면","마라탕","우동"};
