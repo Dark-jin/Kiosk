@@ -1,6 +1,7 @@
 package Source;
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 public class Japan extends JFrame{	
 	public Japan() {
 		setTitle("¤·¤·");
