@@ -2,16 +2,16 @@ package Source;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-public class Japan extends JFrame{
-	public Japan()
+public class Korea extends JFrame{
+	public Korea()
 	{
-		setTitle("일식");
+		setTitle("한식");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
 		
 		
 		
 		setSize(1500,1000);
 		setVisible(true);
-		setLocationRelativeTo(null);
 	}
 }
