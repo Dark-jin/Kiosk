@@ -3,15 +3,94 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 public class Korea extends JFrame{
-	public Korea()
-	{
-		setTitle("한식");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLayout(new BorderLayout());
+	private JButton btn[] = new JButton[10];
+	private JLabel la[] = new JLabel[10];
+	private String[] gukImages = {"images/한식/김치찌개.jpg","images/한식/된장찌개.jpg",
+			"images/한식/순두부찌개.png","images/한식/닭볶음탕.jpeg","images/한식/갈비탕.jpeg"};
+	//찌개/탕 류  이미지 배열
+	private String[] gukName = {"김치찌개","된장찌개","순두부찌개","닭볶음탕/2인분","갈비탕"};//찌개/탕 류 이름 배열
+	private String[] riceImages = {"images/한식/간장계란밥.jpg","images/한식/김치볶음밥.jpeg",
+			"images/한식/스팸김치볶음밥.jpg","images/한식/육회비빔밥.jpg","images/한식/삼겹비빔밥.jpg"};
+	//식사류 이미지 배열
+	private String[] riceName = {"간장계란밥","김치볶음밥","스팸김치볶음밥","육회비빔밥","삼겹비빔밥"};//식사류 이름 배열
+	private int money[] = {8000,8000,9000,18000,12000,6000,6000,7000,10000,12000};//가격
+	private TextArea ta;
+	private int sum=0;
+	public Korea() {
+		setLayout(null);
+		ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);
+		ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
+		JLabel acount = new JLabel("주문 금액 : 0 원");acount.setBounds(700, 600, 300, 50);
+		acount.setVisible(true);acount.setFont(new Font("배달의민족 한나",1,30));
+		JLabel menu = new JLabel("한식 메뉴판");
+		JLabel guk = new JLabel("찌개 / 탕 류");
+		JLabel rice = new JLabel("볶음밥 / 비빔밥 류");
+		menu.setBounds(650, 50, 300, 100); menu.setFont(new Font("배달의민족 한나", 1, 40));
+		guk.setBounds(200,100, 200, 100); guk.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
+		rice.setBounds(200,340, 250, 100); rice.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
+		menu.setOpaque(true);add(menu);guk.setOpaque(true);add(guk);rice.setOpaque(true);add(rice);add(ta);
+		acount.setOpaque(true);add(acount);
+		for(int i=0;i<btn.length;i++) {
+			btn[i] = new JButton();
+			if(i<=4) {//0~4 찌개/탕 종류만
+				btn[i].setBounds(200+(i*150), 200,100, 100);//찌개/탕 류 버튼배열 위치 
+				btn[i].setIcon(changeImage(gukImages[i]));//찌개/탕 류  이미지 크기 조절
+				btn[i].setText(Integer.toString(money[i]));//가격
+				la[i] = new JLabel(gukName[i]);//찌개/탕 류  이름
+				la[i].setBounds(210+(i*150),300,150,50);la[i].setFont(new Font("배달의민족 한나",1,18));//찌개/탕 류  이름 폰트 및 위치
+				la[i].setOpaque(true);//찌개/탕 류 이름 보이게
+				add(btn[i]);add(la[i]);//Frame에 add
+			}
+			else if(i>4){//5~9 식사 종류만
+				btn[i].setBounds(200+((i-5)*150), 440,100, 100);//식사 류 버튼배열 위치
+				btn[i].setIcon(changeImage(riceImages[i-5]));//식사 류 이미지 크기 조절
+				btn[i].setText(Integer.toString(money[i]));//가격
+				la[i] = new JLabel(riceName[i-5]);//식사 류 이름
+				la[i].setBounds(210+((i-5)*150),540,150,50);la[i].setFont(new Font("배달의민족 한나",1,18));//식사 류 이름 폰트 및 위치
+				la[i].setOpaque(true);//식사 류 이름 보이게
+				add(btn[i]);add(la[i]);//Frame에 add
+			}
+			btn[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JButton button = (JButton)e.getSource();
+					int num = getButtonIndex(button);
+					if(num<=4) {
+						ta.append("메뉴: "+gukName[num]+" 가격 :"+button.getText()+"\n");
+						sum+=Integer.parseInt(button.getText());
+						acount.setText("주문 금액: "+Integer.toString(sum)+ " 원");
+					}
+					else if(num>4) {
+						ta.append("메뉴: "+riceName[num-5]+" 가격: "+button.getText()+"\n");
+						sum+=Integer.parseInt(button.getText());
+						acount.setText("주문 금액: "+Integer.toString(sum)+ " 원");
+					}
+				}
+			});
+		}
 		
 		
-		
+		setTitle("키오스크");
 		setSize(1500,1000);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+		setLocationRelativeTo(null);
 	}
+	public int getButtonIndex(JButton button){
+	       int num = 0;
+	       for(int i =0; i<10; i++){
+	          if(btn[i] == button){
+	             num = i;
+	          }
+	       }
+	       return num;
+	    }
+	static ImageIcon changeImage(String filename){
+	         ImageIcon icon = new ImageIcon("./" + filename);
+	         Image originImage = icon.getImage();
+	         Image changedImage = originImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+	         ImageIcon icon_new = new ImageIcon(changedImage);
+	         
+	         return icon_new;
+	   }
 }
