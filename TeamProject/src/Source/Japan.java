@@ -14,6 +14,8 @@ public class Japan extends JFrame{
 	private String count="";
 	private TextArea ta;
 	private int sum=0;
+	private JButton cancel = new JButton("주문 취소");
+    private JButton next = new JButton("주문 하기");
 	public Japan()
 	{
 		setTitle("일식");
@@ -62,6 +64,33 @@ public class Japan extends JFrame{
 				}
 			});
 		}
+		// 주문 취소 버튼 이미지 //
+				cancel.setBounds(1000, 700, 110, 70);
+				cancel.setFont(new Font("배달의민족 한나",1,15));
+				cancel.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						JButton btn = (JButton)e.getSource();
+						if(btn.getText()=="주문 취소")
+						{
+							new Scar();
+							setVisible(false);
+						}
+					}
+				});
+				add(cancel);
+				// 주문하기 버튼 소스 //
+				next.setBounds(1150, 700, 110, 70);
+				next.setFont(new Font("배달의민족 한나",1,15));
+				next.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						new Order(ta);
+						setVisible(false);
+					}
+				});
+				add(next);
 		setSize(1500,1000);
 		setVisible(true);
 		setLocationRelativeTo(null);
