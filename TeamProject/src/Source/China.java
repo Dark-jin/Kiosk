@@ -48,6 +48,12 @@ public class China extends JFrame{
 		// 주문하기 버튼 소스 //
 		next.setBounds(1150, 700, 110, 70);
 		next.setFont(new Font("배달의민족 한나",1,15));
+		next.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		add(next);
 		// 중식 이미지 버튼 소스 //
 		for(int i=0;i<btn.length;i++) 
