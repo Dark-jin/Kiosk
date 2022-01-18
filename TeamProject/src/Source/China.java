@@ -41,6 +41,7 @@ public class China extends JFrame{
 				if(btn.getText()=="주문 취소")
 				{
 					new Scar();
+					setVisible(false);
 				}
 			}
 		});
@@ -51,7 +52,8 @@ public class China extends JFrame{
 		next.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				new Order(ta);
+				setVisible(false);
 			}
 		});
 		add(next);

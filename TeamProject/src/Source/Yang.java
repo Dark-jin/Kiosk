@@ -14,6 +14,8 @@ public class Yang extends JFrame{
 	private int money[] = {8000,9000,8000,9500,8000,14000,14000,18000,17000,16000};//가격
 	private TextArea ta;
 	private int sum=0;
+	private JButton cancel = new JButton("주문 취소");
+    private JButton next = new JButton("주문 하기");
 	public Yang() {
 		setLayout(null);
 		ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
@@ -65,7 +67,33 @@ public class Yang extends JFrame{
 			});
 		}
 		
-		
+		// 주문 취소 버튼 이미지 //
+				cancel.setBounds(1000, 700, 110, 70);
+				cancel.setFont(new Font("배달의민족 한나",1,15));
+				cancel.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						JButton btn = (JButton)e.getSource();
+						if(btn.getText()=="주문 취소")
+						{
+							new Scar();
+							setVisible(false);
+						}
+					}
+				});
+				add(cancel);
+				// 주문하기 버튼 소스 //
+				next.setBounds(1150, 700, 110, 70);
+				next.setFont(new Font("배달의민족 한나",1,15));
+				next.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						new Order(ta);
+						setVisible(false);
+					}
+				});
+				add(next);
 		setTitle("키오스크");
 		setSize(1500,1000);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
