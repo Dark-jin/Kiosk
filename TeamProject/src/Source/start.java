@@ -56,7 +56,8 @@ public class start extends JFrame{
 		setVisible(true);
 		setLocationRelativeTo(null);
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		new start();
 	}
 }
