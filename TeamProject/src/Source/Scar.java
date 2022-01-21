@@ -31,7 +31,7 @@ public class Scar extends JFrame{
 	               int num = getButtonIndex(button);
 	               if(num==0) {new Yang();}
 	               else if(num==1) {new China();}
-	              // else if(num==2) {new Japan();}
+	               else if(num==2) {new Japan();}
 	               else {new Korea();}
 	               setVisible(false);
 	            }
