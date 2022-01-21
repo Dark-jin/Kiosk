@@ -14,6 +14,13 @@ public class Korea extends JFrame{
 	//식사류 이미지 배열
 	private String[] riceName = {"간장계란밥","김치볶음밥","스팸김치볶음밥","육회비빔밥","삼겹비빔밥"};//식사류 이름 배열
 	private int money[] = {8000,8000,9000,18000,12000,6000,6000,7000,10000,12000};//가격
+	//*****주류*****//
+	private JButton DrinkBtn[] = new JButton[3];
+	private String DrinkName[] = {"막걸리","화요","복분자주"};
+	private String[] DrinkImages = {"images/한식/막걸리.jpeg","images/한식/화요.jpg","images/한식/복분자주.jpg"};
+	private int DrinkMoney[] = {5000,10000,15000};
+	private JLabel DrinkLabel[] = new JLabel[3];
+	//*****주문내역*****//
 	private TextArea ta;
 	private int sum=0;
 	private JButton cancel = new JButton("주문 취소");
@@ -27,11 +34,35 @@ public class Korea extends JFrame{
 		JLabel menu = new JLabel("한식 메뉴판");
 		JLabel guk = new JLabel("찌개 / 탕 류");
 		JLabel rice = new JLabel("볶음밥 / 비빔밥 류");
+		JLabel drink = new JLabel("주류");
 		menu.setBounds(650, 50, 300, 100); menu.setFont(new Font("배달의민족 한나", 1, 40));
 		guk.setBounds(200,100, 200, 100); guk.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
 		rice.setBounds(200,340, 250, 100); rice.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
+		drink.setBounds(1000,100, 100, 100); drink.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
 		menu.setOpaque(true);add(menu);guk.setOpaque(true);add(guk);rice.setOpaque(true);add(rice);add(ta);
 		acount.setOpaque(true);add(acount);
+		drink.setOpaque(true);add(drink);
+		//*****주류 추가*****//
+		for(int i=0;i<DrinkBtn.length;i++) {
+			DrinkBtn[i]= new JButton();
+			DrinkBtn[i].setBounds(1000+(i*150), 200, 100, 100);
+			DrinkBtn[i].setIcon(changeImage(DrinkImages[i]));
+			DrinkBtn[i].setText(Integer.toString(DrinkMoney[i]));
+			DrinkLabel[i] = new JLabel(DrinkName[i]);
+			DrinkLabel[i].setBounds(1000+(i*150), 300, 140, 50);DrinkLabel[i].setFont(new Font("배달의민족 한나",1,20));
+			DrinkLabel[i].setOpaque(true);
+			add(DrinkBtn[i]);add(DrinkLabel[i]);
+			DrinkBtn[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JButton button = (JButton)e.getSource();
+					int num = getButtonIndex(button);
+					ta.append("메뉴: "+DrinkName[num]+" 가격 :"+button.getText()+"\n");
+					sum+=Integer.parseInt(button.getText());
+					acount.setText("주문 금액: "+Integer.toString(sum)+ " 원");
+				}
+			});
+		}
 		for(int i=0;i<btn.length;i++) {
 			btn[i] = new JButton();
 			if(i<=4) {//0~4 찌개/탕 종류만

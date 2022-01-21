@@ -18,6 +18,7 @@ public class Yang extends JFrame{
 	private String[] DrinkImages = {"images/양식/돔페리뇽.jpeg","images/양식/알베르비쇼.jpg","images/양식/네비올로.png"};
 	private int DrinkMoney[] = {300000,150000,200000};
 	private JLabel DrinkLabel[] = new JLabel[3];
+	//*****주문내역*****//
 	private TextArea ta;
 	private int sum=0;
 	private JButton cancel = new JButton("주문 취소");
@@ -29,10 +30,13 @@ public class Yang extends JFrame{
 		JLabel menu = new JLabel("양식 메뉴판");
 		JLabel pasta = new JLabel("Pasta");
 		JLabel pizza = new JLabel("Pizza");
+		JLabel drink = new JLabel("Drink");
 		menu.setBounds(650, 50, 300, 100); menu.setFont(new Font("배달의민족 한나", 1, 40));
 		pasta.setBounds(200,100, 100, 100); pasta.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
 		pizza.setBounds(200,340, 100, 100); pizza.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
+		drink.setBounds(1000,100, 100, 100); drink.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
 		menu.setOpaque(true);add(menu);pasta.setOpaque(true);add(pasta);pizza.setOpaque(true);add(pizza);add(ta);
+		drink.setOpaque(true);add(drink);
 		acount.setOpaque(true);add(acount);
 		//*****주류 추가*****//
 		for(int i=0;i<DrinkBtn.length;i++) {
