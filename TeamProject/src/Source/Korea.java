@@ -55,10 +55,10 @@ public class Korea extends JFrame{
 			DrinkBtn[i].addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JButton button = (JButton)e.getSource();
-					int num = getButtonIndex(button);
-					ta.append("메뉴: "+DrinkName[num]+" 가격 :"+button.getText()+"\n");
-					sum+=Integer.parseInt(button.getText());
+					JButton btn = (JButton)e.getSource();
+					int num = getDrinkButtonIndex(btn);
+					ta.append("메뉴: "+DrinkName[num]+" 가격 :"+btn.getText()+"\n");
+					sum+=Integer.parseInt(btn.getText());
 					acount.setText("주문 금액: "+Integer.toString(sum)+ " 원");
 				}
 			});
@@ -134,6 +134,18 @@ public class Korea extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		setLocationRelativeTo(null);
+	}
+	public int getDrinkButtonIndex(JButton btn)
+	{
+		int num = 0;
+		for(int i =0; i<3; i++)
+		{
+			if(DrinkBtn[i] == btn)
+			{
+				num = i;
+			}
+		}
+		return num;
 	}
 	public int getButtonIndex(JButton button){
 	       int num = 0;
