@@ -20,10 +20,24 @@ public class Order extends JFrame{
 		// 카드 결제
 		cardbtn.setBounds(1000, 100, 300, 100);
 		cardbtn.setFont(new Font("배달의민족 한나",1,20));
+		cardbtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new Card();
+			}
+		});
 		add(cardbtn);
 		// 현금 결제
 		cashbtn.setBounds(1000, 300, 300, 100);
 		cashbtn.setFont(new Font("배달의민족 한나",1,20));
+		cashbtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		add(cashbtn);
 		
 		setTitle("주문");
