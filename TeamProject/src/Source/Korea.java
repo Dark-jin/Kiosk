@@ -92,7 +92,7 @@ public class Korea extends JFrame{
 		next.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new Order(ta);
+				new Order(ta,sum);
 				setVisible(false);
 			}
 		});
