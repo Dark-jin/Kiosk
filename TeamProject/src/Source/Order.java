@@ -36,7 +36,8 @@ public class Order extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
+				Cash s = new Cash(ta,sum);
+				s.setVisible(true);
 			}
 		});
 		add(cashbtn);
