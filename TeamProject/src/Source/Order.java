@@ -12,6 +12,7 @@ public class Order extends JFrame{
 		setLayout(null);
 		this.ta=ta;
 		this.sum=sum;
+		int nextsum = this.sum; // Card클래스로 총가격 넘기는 코드
 		ta.setVisible(true);
 		ta.setBounds(0, 0, 750, 1000);
 		ta.setFont(new Font("배달의민족 한나",Font.BOLD,20));
@@ -24,7 +25,7 @@ public class Order extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				Card c=new Card();
+				Card c=new Card(nextsum);
 				c.setVisible(true);
 			}
 		});
