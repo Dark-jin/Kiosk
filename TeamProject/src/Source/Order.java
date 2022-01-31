@@ -25,6 +25,7 @@ public class Order extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				setVisible(false);
 				Card c=new Card(nextsum);
 				c.setVisible(true);
 			}
