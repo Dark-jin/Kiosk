@@ -58,6 +58,21 @@ class Cash extends JDialog{
 				}
 			});
 		}
+		// 현금 영수증 버튼
+		JButton receipt = new JButton("현금 영수증");
+		receipt.setBounds(500, 400, 200, 30);
+		receipt.setFont(new Font("배달의민족 한나",1,20));
+		receipt.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				CashReceipt cashr = new CashReceipt();
+				cashr.setVisible(true);
+			}
+		});
+		add(receipt);
+		
 		setSize(800,500);
 		setLocationRelativeTo(null);
 	} 
