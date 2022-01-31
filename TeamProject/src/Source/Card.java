@@ -24,9 +24,11 @@ class Card extends JDialog
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				setVisible(false);
+				new Complete();
 				CardReceipt rc = new CardReceipt(nnextsume);
 				rc.setVisible(true);
-			}
+				}
+			
 		});
 		okbtn.setBounds(95, 150, 100, 50); // 위치는 나중에 수정
 		okbtn.setFont(new Font("배달의민족 한나",1,20));

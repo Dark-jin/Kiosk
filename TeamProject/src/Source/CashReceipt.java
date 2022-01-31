@@ -18,12 +18,12 @@ public class CashReceipt extends JDialog{
 		setTitle("Cash Receipt");
 		setLayout(null);
 		// 라벨
-		topla.setBounds(110, 30, 300, 50);
+		topla.setBounds(120, 30, 300, 50);
 		topla.setFont(new Font("배달의민족 한나",1,30));
-		middlela.setBounds(120, 90, 330, 30);
-		middlela.setFont(new Font("배달의민족 한나",1,15));
-		middleunderla.setBounds(130, 130, 300, 30);
-		middleunderla.setFont(new Font("배달의민족 한나",1,10));
+		middlela.setBounds(75, 110, 350, 30);
+		middlela.setFont(new Font("배달의민족 한나",1,17));
+		middleunderla.setBounds(90, 150, 330, 30);
+		middleunderla.setFont(new Font("배달의민족 한나",1,15));
 		add(topla);add(middlela);add(middleunderla);
 		//휴대전화
 		ja.setBounds(140, 250, 200, 30);
@@ -49,7 +49,7 @@ public class CashReceipt extends JDialog{
 			else
 			{
 				numbtn[i] = new JButton(numname[i]);
-				numbtn[i].setBounds(63+(i-8)*75, 450, 65, 40);
+				numbtn[i].setBounds(70+(i-8)*70, 450, 65, 40);
 			}
 			numbtn[i].addActionListener(new ActionListener() {
 				@Override
@@ -72,13 +72,13 @@ public class CashReceipt extends JDialog{
 			add(numbtn[i]);
 		}
 		//나머지 버튼
-		clearbtn.setBounds(100, 650, 100, 50);
-		clearbtn.setFont(new Font("배달의민족 한나",1,10));
-		okaybtn.setBounds(300, 650, 100, 50);
-		okaybtn.setFont(new Font("배달의민족 한나",1,10));
+		clearbtn.setBounds(85, 520, 100, 50);
+		clearbtn.setFont(new Font("배달의민족 한나",1,13));
+		okaybtn.setBounds(285, 520, 100, 50);
+		okaybtn.setFont(new Font("배달의민족 한나",1,13));
 		add(clearbtn);add(okaybtn);
 		
-		setSize(500,800);
+		setSize(500,650);
 		setLocationRelativeTo(null);
 	}
 }
