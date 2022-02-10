@@ -66,7 +66,7 @@ public class CashReceipt extends JDialog{
 					else if(e.getActionCommand()=="9") {ja.append("9");}
 					else if(e.getActionCommand()=="-") {ja.append("-");}
 					else if(e.getActionCommand()=="0") {ja.append("0");}
-					else {ja.append("");}
+					else {ja.setText(null);;}
 				}
 			});
 			add(numbtn[i]);
@@ -76,8 +76,23 @@ public class CashReceipt extends JDialog{
 		clearbtn.setFont(new Font("배달의민족 한나",1,13));
 		okaybtn.setBounds(285, 520, 100, 50);
 		okaybtn.setFont(new Font("배달의민족 한나",1,13));
+		clearbtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				new Complete();
+			}
+		});
+		okaybtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				new Complete();
+			}
+		});
 		add(clearbtn);add(okaybtn);
-		
 		setSize(500,650);
 		setLocationRelativeTo(null);
 	}
