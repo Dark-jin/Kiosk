@@ -25,6 +25,7 @@ class Card extends JDialog
 				// TODO Auto-generated method stub
 				setVisible(false);
 				new Complete();
+				new WaitingNumber();
 				CardReceipt rc = new CardReceipt(nnextsume);
 				rc.setVisible(true);
 				}
