@@ -30,7 +30,7 @@ public class Complete extends JFrame implements Runnable{
       			if(sec==0) {
       				timer.cancel();
       				setVisible(false);
-      	      		new start();
+      	      		new Log();
       			}
       		}
       	};
