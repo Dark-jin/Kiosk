@@ -13,27 +13,28 @@ public class Scar extends JFrame{
 	private JButton btn[] =new JButton[4];
 	private String name[] = {"양식","중식","일식","한식"};
 	private JLabel label[] = new JLabel[4];
-	private JPanel panel;
+	private JPanel panel,panel2;
 	public Scar() {
 		setTitle("키오스크");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
-		panel = new MyPanel("images/first main.png");
-		panel.setBackground(Color.WHITE);
+		panel = new MyPanel("images/top2.png");
+		panel.setBackground(Color.BLUE);
 		panel.setLayout(null);
-		panel.setBounds(0, -30, 1500, 1000);
+		panel.setBounds(0,0, 1500, 130);
 		
+		panel2 = new JPanel();
+		panel2.setBounds(0, 130, 150, 850);
+		panel2.setLayout(null);
+		panel2.setBackground(Color.ORANGE);
 		for(int i=0;i<name.length;i++) {
 			btn[i] = new JButton();
-			btn[i].setBounds(370+(i*200),550,100,100);
-			btn[i].setIcon(change);
+			btn[i].setBounds(25,40+(i*200),100,100);
 			btn[i].setVisible(true);
-			btn[i].setBackground(Color.WHITE);
-			label[i] = new JLabel();
-			label[i].setText(name[i]);
-			label[i].setBounds(395+(i*200), 680, 70, 50);
-			label[i].setFont(new Font("배달의민족 한나", 1, 25));
-			panel.add(btn[i]);panel.add(label[i]);
+			btn[i].setText(name[i]);
+			btn[i].setFont(new Font("배달의민족 한나",1,25));
+			btn[i].setBackground(Color.ORANGE);btn[i].setBorderPainted(false);
+			panel2.add(btn[i]);
 			btn[i].addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
@@ -47,7 +48,7 @@ public class Scar extends JFrame{
 	            }
 	         });
 	      }
-		add(panel);
+		add(panel);add(panel2);
 	      setSize(1500,1000);
 	      setVisible(true);
 	      setLocationRelativeTo(null);
@@ -66,11 +67,13 @@ public class Scar extends JFrame{
 
 			MyPanel(String img) {
 				image = Toolkit.getDefaultToolkit().createImage(img);
+				
 			}
 
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				if (image != null) {
+					
 					g.drawImage(image, 0, 0, this);
 				}
 			}
