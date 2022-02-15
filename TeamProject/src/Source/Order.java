@@ -2,7 +2,7 @@ package Source;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-public class Order extends JFrame{
+public class Order extends JDialog{
 	TextArea ta;
 	int sum;
 	private JButton cardbtn = new JButton("카드 결제"); // 카드 결제 버튼
@@ -14,12 +14,12 @@ public class Order extends JFrame{
 		this.sum=sum;
 		int nextsum = this.sum; // Card클래스로 총가격 넘기는 코드
 		ta.setVisible(true);
-		ta.setBounds(0, 0, 750, 1000);
+		ta.setBounds(0, 0, 800, 400);
 		ta.setFont(new Font("배달의민족 한나",Font.BOLD,20));
-		ta.append("\n총 가격 : "+sum+" 원");
+		ta.append("\n\n\n\n총 가격 : "+sum+" 원");
 		add(ta);
 		// 카드 결제
-		cardbtn.setBounds(1000, 100, 300, 100);
+		cardbtn.setBounds(150, 600, 200, 80);
 		cardbtn.setFont(new Font("배달의민족 한나",1,20));
 		cardbtn.addActionListener(new ActionListener() {
 			@Override
@@ -32,7 +32,7 @@ public class Order extends JFrame{
 		});
 		add(cardbtn);
 		// 현금 결제
-		cashbtn.setBounds(1000, 300, 300, 100);
+		cashbtn.setBounds(450, 600, 200, 80);
 		cashbtn.setFont(new Font("배달의민족 한나",1,20));
 		cashbtn.addActionListener(new ActionListener() {
 			@Override
@@ -46,8 +46,8 @@ public class Order extends JFrame{
 		add(cashbtn);
 		
 		setTitle("주문");
-		setSize(1500,1000);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(800,800);
+		
 		setVisible(true);
 		setLocationRelativeTo(null);
 	}
