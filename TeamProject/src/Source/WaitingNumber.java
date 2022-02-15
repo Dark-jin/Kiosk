@@ -29,6 +29,7 @@ public class WaitingNumber extends JDialog{
 				for(int i =0; i<10; i++)
 				{
 					ja.setText("    "+Integer.toString(rand.nextInt(30)+1));
+					new Table();
 				}
 			}
 		});
