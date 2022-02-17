@@ -34,6 +34,7 @@ public class Table extends JFrame{
 					// TODO Auto-generated method stub
 					JOptionPane.showMessageDialog(null, "테이블 예약이 완료되었습니다!", "Table Reservation", JOptionPane.INFORMATION_MESSAGE);
 					// MessageBox 코딩
+					setVisible(false);
 				}
 			});
 		}
