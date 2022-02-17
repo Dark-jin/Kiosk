@@ -13,6 +13,7 @@ public class CashReceipt extends JDialog{
 	
 	JButton clearbtn = new JButton("발행 안함");
 	JButton okaybtn = new JButton("완료");
+	int count = 0;
 	public CashReceipt()
 	{
 		setTitle("Cash Receipt");
@@ -66,7 +67,8 @@ public class CashReceipt extends JDialog{
 					else if(e.getActionCommand()=="9") {ja.append("9");}
 					else if(e.getActionCommand()=="-") {ja.append("-");}
 					else if(e.getActionCommand()=="0") {ja.append("0");}
-					else {ja.setText(null);;}
+					else {ja.setText(null);count=0;}
+					count++;
 				}
 			});
 			add(numbtn[i]);
@@ -88,8 +90,17 @@ public class CashReceipt extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				setVisible(false);
-				new Complete();
+				if(count<13)
+				{
+					JOptionPane.showMessageDialog(null, "다시 번호을 입력해주십시오!", "Phone Number", JOptionPane.INFORMATION_MESSAGE);
+					ja.setText(null);
+					count = 0;
+				}
+				else
+				{
+					setVisible(false);
+					new Complete();
+				}
 			}
 		});
 		add(clearbtn);add(okaybtn);
