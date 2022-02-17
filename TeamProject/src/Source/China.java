@@ -2,7 +2,7 @@ package Source;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-public class China extends JFrame{
+public class China extends JPanel{
 	private JButton btn [] = new JButton[10];
 	private JLabel la[] = new JLabel[10];
     static String[] chineseimages = {"images/중식/딤섬.png","images/중식/군만두.png","images/중식/짬뽕.png","images/중식/팔보채.png",
@@ -19,15 +19,16 @@ public class China extends JFrame{
     private JButton next = new JButton("주문 하기");
 	public China()
 	{
-		setTitle("중식");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setBounds(150, 130, 1350, 700);
+		//setTitle("중식");
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
-		ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
+		//ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
 		JLabel acount = new JLabel("주문 금액 : 0 원");acount.setBounds(700, 600, 300, 50);acount.setVisible(true);acount.setFont(new Font("배달의민족 한나",1,30));
 		JLabel menu = new JLabel("중식 메뉴판");
 		menu.setBounds(650, 50, 300, 100); menu.setFont(new Font("배달의민족 한나", 1, 40));
 		menu.setOpaque(true);add(menu);
-		add(ta);
+		//add(ta);
 		acount.setOpaque(true);
 		add(acount);
 		// 주문 취소 버튼 이미지 //
@@ -93,9 +94,9 @@ public class China extends JFrame{
 				}
 			});
 		}
-		setSize(1500,1000);
+		//setSize(1500,1000);
 		setVisible(true);
-		setLocationRelativeTo(null);
+		//setLocationRelativeTo(null);
 	}
 	public int getButtonIndex(JButton button){
 	       int num = 0;
