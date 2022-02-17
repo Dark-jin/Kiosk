@@ -2,7 +2,7 @@ package Source;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-public class Korea extends JFrame{
+public class Korea extends JPanel{
 	private JButton btn[] = new JButton[10];
 	private JLabel la[] = new JLabel[10];
 	private String[] gukImages = {"images/한식/김치찌개.jpg","images/한식/된장찌개.jpg",
@@ -26,6 +26,7 @@ public class Korea extends JFrame{
 	private JButton cancel = new JButton("주문 취소");
     private JButton next = new JButton("주문 하기");
 	public Korea() {
+		this.setBounds(150, 130, 1350, 700);
 		setLayout(null);
 		ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);
 		ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
@@ -129,11 +130,11 @@ public class Korea extends JFrame{
 		});
 		add(next);
 		
-		setTitle("키오스크");
-		setSize(1500,1000);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setTitle("키오스크");
+		//setSize(1500,1000);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		setLocationRelativeTo(null);
+		//setLocationRelativeTo(null);
 	}
 	public int getDrinkButtonIndex(JButton btn)
 	{

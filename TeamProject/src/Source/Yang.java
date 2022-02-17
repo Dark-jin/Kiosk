@@ -1,8 +1,9 @@
 package Source;
+import Source.Scar;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-public class Yang extends JFrame{
+public class Yang extends JPanel{
 	private JButton btn[] = new JButton[10];
 	private JLabel la[] = new JLabel[10];
 	private String[] PastaImages = {"images/양식/1.jpg","images/양식/2.jpg","images/양식/3.jpeg","images/양식/4.jpeg","images/양식/5.jpg"};
@@ -23,22 +24,24 @@ public class Yang extends JFrame{
 	private int sum=0;
 	private JButton cancel = new JButton("주문 취소");
     private JButton next = new JButton("주문 하기");
+    protected Scar frame;
 	public Yang() {
 		setLayout(null);
-		ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
+		this.setBounds(150, 130, 1350, 700);
+		//ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
 		JLabel acount = new JLabel("주문 금액 : 0 원");acount.setBounds(700, 600, 500, 50);acount.setVisible(true);acount.setFont(new Font("배달의민족 한나",1,30));
 		JLabel menu = new JLabel("양식 메뉴판");
 		JLabel pasta = new JLabel("Pasta");
 		JLabel pizza = new JLabel("Pizza");
 		JLabel drink = new JLabel("Drink");
-		menu.setBounds(650, 50, 300, 100); menu.setFont(new Font("배달의민족 한나", 1, 40));
-		pasta.setBounds(200,100, 100, 100); pasta.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
-		pizza.setBounds(200,340, 100, 100); pizza.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
-		drink.setBounds(1000,100, 100, 100); drink.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
-		menu.setOpaque(true);add(menu);pasta.setOpaque(true);add(pasta);pizza.setOpaque(true);add(pizza);add(ta);
+		menu.setBounds(250,200, 50, 30); menu.setFont(new Font("배달의민족 한나", 1, 30));
+		pasta.setBounds(200,250, 50, 30); pasta.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
+		pizza.setBounds(200,600, 50, 30); pizza.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
+		drink.setBounds(1000,900, 50, 30); drink.setFont(new Font("배달의민족 한나",Font.ITALIC, 30));
+		menu.setOpaque(true);add(menu);pasta.setOpaque(true);add(pasta);pizza.setOpaque(true);add(pizza);//add(ta);
 		drink.setOpaque(true);add(drink);
 		acount.setOpaque(true);add(acount);
-		//*****주류 추가*****//
+		//*****주류 추가*****//3번
 		for(int i=0;i<DrinkBtn.length;i++) {
 			DrinkBtn[i]= new JButton();
 			DrinkBtn[i].setBounds(1000+(i*150), 200, 100, 100);
@@ -59,24 +62,33 @@ public class Yang extends JFrame{
 				}
 			});
 		}
-		for(int i=0;i<btn.length;i++) {
+		for(int i=0;i<btn.length;i++) {//1~2번
 			btn[i] = new JButton();
 			if(i<=4) {//0~4 파스타 종류만
-				btn[i].setBounds(200+(i*150), 200,100, 100);//파스타 버튼배열 위치 
+				btn[i].setBounds(200+(i*50),300,100, 100);//파스타 버튼배열 위치 
 				btn[i].setIcon(changeImage(PastaImages[i]));//파스타 이미지 크기 조절
 				btn[i].setText(Integer.toString(money[i]));//가격
 				la[i] = new JLabel(PastaName[i]);//파스타 이름
-				la[i].setBounds(200+(i*150),300,130,50);la[i].setFont(new Font("배달의민족 한나",1,20));//파스타 이름 폰트 및 위치
+				la[i].setBounds(200+(i*50),400,130,50);la[i].setFont(new Font("배달의민족 한나",1,20));//파스타 이름 폰트 및 위치
 				la[i].setOpaque(true);//파스타 이름 보이게
 				add(btn[i]);add(la[i]);//Frame에 add
 				
 			}
+			else if(i<=4&&i>2) {
+				btn[i].setBounds(200+(i*50),470,100, 100);//파스타 버튼배열 위치 
+				btn[i].setIcon(changeImage(PastaImages[i]));//파스타 이미지 크기 조절
+				btn[i].setText(Integer.toString(money[i]));//가격
+				la[i] = new JLabel(PastaName[i]);//파스타 이름
+				la[i].setBounds(200+(i*50),570,130,50);la[i].setFont(new Font("배달의민족 한나",1,20));//파스타 이름 폰트 및 위치
+				la[i].setOpaque(true);//파스타 이름 보이게
+				add(btn[i]);add(la[i]);//Frame에 add
+			}
 			else if(i>4){//5~9 피자 종류만
-				btn[i].setBounds(200+((i-5)*150), 440,100, 100);//피자 버튼배열 위치
+				btn[i].setBounds(200+((i-5)*50),650,100, 100);//피자 버튼배열 위치
 				btn[i].setIcon(changeImage(PizzaImages[i-5]));//피자 이미지 크기 조절
 				btn[i].setText(Integer.toString(money[i]));//가격
 				la[i] = new JLabel(PizzaName[i-5]);//피자 이름
-				la[i].setBounds(200+((i-5)*150),540,130,50);la[i].setFont(new Font("배달의민족 한나",1,20));//피자 이름 폰트 및 위치
+				la[i].setBounds(200+((i-5)*50),680,130,50);la[i].setFont(new Font("배달의민족 한나",1,20));//피자 이름 폰트 및 위치
 				la[i].setOpaque(true);//피자 이름 보이게
 				add(btn[i]);add(la[i]);//Frame에 add
 			}
@@ -126,11 +138,7 @@ public class Yang extends JFrame{
 					}
 				});
 				add(next);
-		setTitle("키오스크");
-		setSize(1500,1000);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
-		setLocationRelativeTo(null);
+				setVisible(true);
 	}
 	public int getDrinkButtonIndex(JButton btn)
 	{
