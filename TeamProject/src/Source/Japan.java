@@ -2,7 +2,7 @@ package Source;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-public class Japan extends JFrame{
+public class Japan extends JPanel{
 	private JButton btn[] = new JButton[10];
 	private JLabel la[] = new JLabel[10];
 	private String[] japanimages = {"images/일식/벤또.png","images/일식/스시.png","images/일식/새우덮밥.png","images/일식/라멘.png","images/일식/타코야끼.png",
@@ -18,8 +18,9 @@ public class Japan extends JFrame{
     private JButton next = new JButton("주문 하기");
 	public Japan()
 	{
-		setTitle("일식");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setBounds(150, 130, 1350, 700);
+		//setTitle("일식");
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
 		ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
 		JLabel acount = new JLabel("주문 금액 : 0 원");acount.setBounds(700, 600, 300, 50);acount.setVisible(true);acount.setFont(new Font("배달의민족 한나",1,30));
@@ -91,9 +92,9 @@ public class Japan extends JFrame{
 					}
 				});
 				add(next);
-		setSize(1500,1000);
+		//setSize(1500,1000);
 		setVisible(true);
-		setLocationRelativeTo(null);
+		//setLocationRelativeTo(null);
 	}
 	public int getButtonIndex(JButton button){
 	       int num = 0;
