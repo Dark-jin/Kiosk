@@ -23,12 +23,12 @@ public class China extends JPanel{
 		//setTitle("중식");
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
-		//ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
+		ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
 		JLabel acount = new JLabel("주문 금액 : 0 원");acount.setBounds(700, 600, 300, 50);acount.setVisible(true);acount.setFont(new Font("배달의민족 한나",1,30));
 		JLabel menu = new JLabel("중식 메뉴판");
 		menu.setBounds(650, 50, 300, 100); menu.setFont(new Font("배달의민족 한나", 1, 40));
 		menu.setOpaque(true);add(menu);
-		//add(ta);
+		add(ta);
 		acount.setOpaque(true);
 		add(acount);
 		// 주문 취소 버튼 이미지 //

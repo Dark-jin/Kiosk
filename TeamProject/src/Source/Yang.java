@@ -28,7 +28,7 @@ public class Yang extends JPanel{
 	public Yang() {
 		setLayout(null);
 		this.setBounds(150, 130, 1350, 700);
-		//ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
+		ta = new TextArea("주문내역\n",10,30);ta.setBounds(200, 600, 500, 300);ta.setVisible(true);ta.setFont(new Font("배달의민족 한나",1,15));
 		JLabel acount = new JLabel("주문 금액 : 0 원");acount.setBounds(700, 600, 500, 50);acount.setVisible(true);acount.setFont(new Font("배달의민족 한나",1,30));
 		JLabel menu = new JLabel("양식 메뉴판");
 		JLabel pasta = new JLabel("Pasta");

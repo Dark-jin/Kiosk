@@ -13,7 +13,7 @@ public class Scar extends JFrame{
 	private JButton btn[] =new JButton[4];
 	private String name[] = {"양식","중식","일식","한식"};
 	private JLabel label[] = new JLabel[4];
-	private JPanel panel,panel2,panel3;
+	private JPanel panel,panel2;
 	private Yang yang = new Yang();
 	private China china = new China();
 	private Japan japan = new Japan();
@@ -60,30 +60,36 @@ public class Scar extends JFrame{
 	            public void actionPerformed(ActionEvent e) {
 	               JButton button =(JButton)e.getSource();
 	               int num = getButtonIndex(button);
-	               if(num==0) {
-	            	//removeAll();
-	            	getContentPane().removeAll();
-	            	getContentPane().add(yang);
-	            	yang.setVisible(true);
-	               }
-	               else if(num==1) {
-	            	  // removeAll();
-	            	   getContentPane().removeAll();
-	            	   getContentPane().add(china);
-	            	   china.setVisible(true);
-		            	}
-	               else if(num==2) {
-	            	   //removeAll();
-	            	   getContentPane().removeAll();
-	            	   getContentPane().add(japan);
-	            	   japan.setVisible(true);
-	            	   }
-	               else { 
-	            	   //removeAll();
-            	   getContentPane().removeAll();
-            	   getContentPane().add(korea);
-            	   korea.setVisible(true);}
-	              // setVisible(false);
+	               switch (num) {
+	               case 0:
+		            	if(korea.isVisible()==true)korea.setVisible(false);
+		            	else if(china.isVisible()==true)china.setVisible(false);
+		            	else if(japan.isVisible()==true)japan.setVisible(false);
+		            	yang.setVisible(true);
+		            	revalidate();
+		            	break;
+	               case 1:
+	            	    if(korea.isVisible()==true)korea.setVisible(false);
+		            	else if(yang.isVisible()==true)yang.setVisible(false);
+		            	else if(japan.isVisible()==true)japan.setVisible(false);
+		            	china.setVisible(true);
+		            	revalidate();
+	            	   break;
+	               case 2:
+	            	   if(korea.isVisible()==true)korea.setVisible(false);
+		            	else if(yang.isVisible()==true)yang.setVisible(false);
+		            	else if(china.isVisible()==true)china.setVisible(false);
+		            	japan.setVisible(true);
+		            	revalidate();
+	            	   break;
+	               case 3:
+	            	   if(japan.isVisible()==true)japan.setVisible(false);
+		            	else if(yang.isVisible()==true)yang.setVisible(false);
+		            	else if(china.isVisible()==true)china.setVisible(false);
+		            	korea.setVisible(true);
+		            	revalidate();
+	            	   break;
+	              }
 	            }
 	         });
 	      }
