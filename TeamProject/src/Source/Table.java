@@ -10,7 +10,7 @@ public class Table extends JFrame{
 	private JPanel panel2 = new JPanel();
 	private JPanel panel3 = new JPanel();
 	public Table()
-	{
+	{ 
 		setTitle("Table");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
